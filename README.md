@@ -49,12 +49,6 @@ npm run dev
 
 El proyecto se deployea automáticamente a GitHub Pages con GitHub Actions en cada push a `main`.
 
-Para deployar manualmente:
-
-```bash
-npm run build
-```
-
 ## Live
 
 [f3d9.github.io/Portafolio](https://f3d9.github.io/Portafolio)
