@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/Portafolio/",
+  base: "https://f3d9.github.io/",
   plugins: [
     react(),
     tailwindcss(),
