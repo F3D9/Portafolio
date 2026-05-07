@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+
+:root {
+  /* Paleta principal */
+  --c1: #08080c;
+  --c2: #f0ede6;
+  --c3: #686aff;
+  --c4: rgba(240, 237, 230, 0.5);
+  --c5: rgba(240, 237, 230, 0.7);
+  --c6: rgba(180, 182, 184, 0.589);
+  --c7: rgba(104, 106, 255, 0.15);
+  --c8: rgba(255, 255, 255, 0.06);
+  --c9: rgba(255, 255, 255, 0.10);
+
+  /* aliases para los componentes viejos que usan nombres largos */
+  --color-bg: var(--c1);
+  --color-text: var(--c2);
+  --color-accent: var(--c3);
+  --color-text-muted: var(--c4);
+  --color-text-faint: rgba(240, 237, 230, 0.30);
+  --color-border: var(--c8);
+  --color-border-md: var(--c9);
+  --color-border-lg: rgba(255, 255, 255, 0.25);
+  --color-surface: rgba(255, 255, 255, 0.04);
+
+  /* Tipografía */
+  --font-display: 'DM Serif Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Espaciado */
+  --section-padding: 2.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--c1);
+  color: var(--c2);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-toggle {
+    display: block !important;
+  }
+}
+
+/* Responsive project card */
+@media (max-width: 768px) {
+  .project-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
+
+/* Responsive contact grid */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
