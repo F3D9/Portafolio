@@ -30,11 +30,7 @@ export default function Contact() {
     const [focused, setFocused] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
-        console.log({
-        service: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        template: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        key: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        });
+
         e.preventDefault();
         if (!formRef.current) return;
 
