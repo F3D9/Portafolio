@@ -30,7 +30,6 @@ export default function Contact() {
     const [focused, setFocused] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
-
         e.preventDefault();
         if (!formRef.current) return;
 
