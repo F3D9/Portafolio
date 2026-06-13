@@ -1,5 +1,6 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import HeroButtons from "./HeroButtons";
 
 export default function Hero() {
     return (
@@ -16,16 +17,12 @@ export default function Hero() {
                 background: "var(--c1)",
             }}
         >
-            {/* Fondo con imagen placeholder (reemplazá la URL con tu foto) */}
+            {/* Fondo color plano azul */}
             <div
                 style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundImage:
-                        "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    opacity: 0.35,
+                    backgroundColor: "var(--c9)",
                 }}
             />
 
@@ -67,7 +64,7 @@ export default function Hero() {
                         margin: "0 0 1.25rem",
                     }}
                 >
-                    Backend Developer · Buenos Aires
+                    Full Stack Developer · Buenos Aires
                 </motion.p>
 
                 <motion.h1
@@ -84,16 +81,7 @@ export default function Hero() {
                     }}
                 >
                     Federico
-                    <br />
-                    <span
-                        style={{
-                            WebkitTextStroke: "1px var(--c4)",
-                            color: "transparent",
-                        }}
-                    >
-                        Salgado
-                    </span>
-
+                    Salgado
                 </motion.h1>
 
                 <motion.p
@@ -109,7 +97,6 @@ export default function Hero() {
                         margin: "0 0 2.5rem",
                     }}
                 >
-                    Node.js · TypeScript · PostgreSQL · Docker.
                     APIs limpias, código que se entiende, proyectos que llegan a
                     producción.
                 </motion.p>
@@ -120,57 +107,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }} 
                     transition={{ duration: 0.5, delay: 0.5 }}
                     >
-                    <a
-                        href="https://linkedin.com/in/federico-salgado"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: "0.5rem",
-                            padding: "0.75rem 2rem",
-                            background: "var(--c3)",
-                            color: "var(--c1)",
-                            textDecoration: "none",
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontWeight: 600,
-                            fontSize: "0.85rem",
-                            letterSpacing: "0.04em",
-                            transition: "opacity 0.2s",
-                        }}
-                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-                    >
-                        <FaLinkedin size={16} /> LinkedIn
-                    </a>
-                    <a
-                        href="https://github.com/F3D9"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: "0.5rem",
-                            padding: "0.75rem 2rem",
-                            border: "1px solid var(--c4)",
-                            color: "var(--c5)",
-                            textDecoration: "none",
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "0.85rem",
-                            letterSpacing: "0.04em",
-                            transition: "border-color 0.2s, color 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.borderColor = "var(--c5)";
-                            (e.currentTarget as HTMLElement).style.color = "var(--c2)";
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.borderColor = "var(--c4)";
-                            (e.currentTarget as HTMLElement).style.color = "var(--c5)";
-                        }}
-                    >
-                        <FaGithub size={16} /> GitHub
-                    </a>
+                    <HeroButtons />
                 </motion.div>
             </div >
         </section >

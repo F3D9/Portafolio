@@ -12,6 +12,7 @@
   --c7: rgba(104, 106, 255, 0.15);
   --c8: rgba(255, 255, 255, 0.06);
   --c9: rgba(255, 255, 255, 0.10);
+  --c9: #18307e;
 
   /* aliases para los componentes viejos que usan nombres largos */
   --color-bg: var(--c1);

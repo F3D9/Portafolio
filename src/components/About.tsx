@@ -1,17 +1,20 @@
-import { FaNodeJs, FaDocker, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiPostgresql, SiRailway, SiReact, SiVitest, SiPython } from "react-icons/si";
+import { FaNodeJs, FaDocker, FaGitAlt, FaJava, } from "react-icons/fa";
+import { SiTypescript, SiPostgresql, SiRailway, SiReact, SiVitest, SiPython, SiExpress, SiTailwindcss} from "react-icons/si";
 import { motion } from "framer-motion";
 
 const skills = [
     { name: "Node.js", icon: FaNodeJs },
+    { name: "Express", icon: SiExpress },
     { name: "TypeScript", icon: SiTypescript },
     { name: "Python", icon: SiPython },
+    { name: "Java", icon: FaJava },
     { name: "PostgreSQL", icon: SiPostgresql },
     { name: "Docker", icon: FaDocker },
     { name: "React", icon: SiReact },
     { name: "Railway", icon: SiRailway },
     { name: "Vitest", icon: SiVitest },
     { name: "Git", icon: FaGitAlt },
+    { name: "Tailwind CSS", icon: SiTailwindcss }
 ];
 
 export default function About() {
@@ -64,10 +67,10 @@ export default function About() {
                             margin: "0 0 2rem",
                         }}
                     >
-                        Desarrollador backend
+                        Desarrollador Fullstack 
                         <br />
                         <span style={{ color: "var(--c4)" }}>
-                            estudiante en UBA.
+                            Estudiante en UBA.
                         </span>
                     </h2>
 
@@ -89,22 +92,10 @@ export default function About() {
                             margin: "0 0 1.25rem",
                         }}
                     >
-                        Soy Federico, desarrollador backend cursando Ingeniería Informática 
-                        en la UBA ( Universidad de Buenos Aires ). 
-                    </p>
-
-                    <p
-                        style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "1rem",
-                            color: "var(--c4)",
-                            lineHeight: 1.8,
-                            margin: "0 0 2.5rem",
-                        }}
-                    >
-                        Especializado en Node.js y TypeScript. Construyo APIs, sistemas escalables e interfaces
-                        modernas con React. Foco en código limpio y proyectos que llegan a producción.
-                        Actualmente disponible para roles de desarrollo y proyectos freelance.
+                        Soy Federico, desarrollador Fullstack Junior con foco en backend — Node.js, TypeScript
+                        y PostgreSQL. Estoy cursando Ingeniería Informática en la UBA y ya tengo proyectos
+                        deployados en producción. Busco sumarme a un equipo donde pueda crecer y aportar
+                        desde el día uno. Disponible para CABA presencial o remoto.
                     </p>
 
                 </div>

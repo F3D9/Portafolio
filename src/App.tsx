@@ -10,8 +10,8 @@ export default function App() {
     <div style={{ background: "var(--c1)", minHeight: "100vh" }}>
       <Navbar />
       <Hero />
-      <Projects projects={projects} />
       <About />
+      <Projects projects={projects} />
       <Contact />
     </div>
   );
