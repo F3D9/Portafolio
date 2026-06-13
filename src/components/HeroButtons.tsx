@@ -58,7 +58,7 @@ const HeroButtons = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
         >
             <PortfolioButton
-                href="/CV_Federico_Salgado.pdf"
+                href="/Portafolio/CV_Federico_Salgado.pdf"
                 icon={<FaFileAlt size={16} />}
                 label="Descargar CV"
                 solid
