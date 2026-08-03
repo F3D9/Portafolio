@@ -2,6 +2,10 @@
 
 Portfolio personal desarrollado con React, TypeScript y Vite. Diseño dark con animaciones y formulario de contacto funcional.
 
+## Live
+
+[f3d9.github.io/Portafolio](https://f3d9.github.io/Portafolio)
+
 ## Stack
 
 - **React + TypeScript** — frontend
@@ -48,7 +52,3 @@ npm run dev
 ## Deploy
 
 El proyecto se deployea automáticamente a GitHub Pages con GitHub Actions en cada push a `main`.
-
-## Live
-
-[f3d9.github.io/Portafolio](https://f3d9.github.io/Portafolio)
