@@ -5,14 +5,14 @@
   /* Paleta principal */
   --c1: #08080c;
   --c2: #f0ede6;
-  --c3: #2f31a7;
+  --c3: #484bff;
   --c4: rgba(240, 237, 230, 0.5);
   --c5: rgba(240, 237, 230, 0.7);
   --c6: rgba(180, 182, 184, 0.589);
   --c7: rgba(104, 106, 255, 0.15);
   --c8: rgba(255, 255, 255, 0.06);
   --c9: rgba(255, 255, 255, 0.10);
-  --c9: #091331;
+  --c9: #031a61;
 
   /* aliases para los componentes viejos que usan nombres largos */
   --color-bg: var(--c1);
