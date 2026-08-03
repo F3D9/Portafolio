@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Navbar() {
     const [open, setOpen] = useState(false);
 
-    const links = ["Inicio","Proyectos", "Sobre mí", "Contacto"];
+    const links = ["Inicio", "Sobre mí","Proyectos", "Contacto"];
 
     return (
         <nav
