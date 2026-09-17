@@ -1,5 +1,6 @@
 import { FaFileAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Language, t } from "../i18n";
 
 interface ButtonProps {
     href: string;
@@ -16,7 +17,7 @@ const PortfolioButton = ({ href, icon, label, solid = false, download = false }:
         gap: "0.5rem",
         padding: "0.75rem 2rem",
         textDecoration: "none",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-mono)",
         fontSize: "0.85rem",
         letterSpacing: "0.04em",
         cursor: "pointer",
@@ -49,7 +50,7 @@ const PortfolioButton = ({ href, icon, label, solid = false, download = false }:
     );
 };
 
-const HeroButtons = () => {
+const HeroButtons = ({ lang }: { lang: Language }) => {
     return (
         <motion.div
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
@@ -60,7 +61,7 @@ const HeroButtons = () => {
             <PortfolioButton
                 href="/Portafolio/CV_Federico_Salgado.pdf"
                 icon={<FaFileAlt size={16} />}
-                label="Descargar CV"
+                label={lang === 'es' ? "Descargar CV" : "Download CV"}
                 solid
                 download
             />

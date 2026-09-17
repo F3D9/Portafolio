@@ -1,36 +1,84 @@
 @import "tailwindcss";
 
 
-:root {
-  /* Paleta principal */
-  --c1: #08080c;
-  --c2: #f0ede6;
-  --c3: #484bff;
-  --c4: rgba(240, 237, 230, 0.5);
-  --c5: rgba(240, 237, 230, 0.7);
-  --c6: rgba(180, 182, 184, 0.589);
-  --c7: rgba(104, 106, 255, 0.15);
-  --c8: rgba(255, 255, 255, 0.06);
-  --c9: rgba(255, 255, 255, 0.10);
-  --c9: #031a61;
+@import "tailwindcss";
 
-  /* aliases para los componentes viejos que usan nombres largos */
+:root {
+  /* Paleta "Engineering Dark" */
+  --c1: #050505;        /* Fondo profundo */
+  --c2: #e2e8f0;        /* Texto principal (slate 200) */
+  --c3: #3b82f6;        /* Acento azul eléctrico (estilo AWS/Cloud) */
+  --c4: #94a3b8;        /* Texto muted (slate 400) */
+  --c5: #64748b;        /* Texto más tenue (slate 500) */
+  --c6: #1e293b;        /* Superficie oscura (slate 800) */
+  --c7: rgba(59, 130, 246, 0.1); /* Glow azul sutil */
+  --c8: #1f1f1f;        /* Bordes muy sutiles */
+  --c9: #0a0a0a;        /* Fondo alternativo */
+
+  /* aliases */
   --color-bg: var(--c1);
   --color-text: var(--c2);
   --color-accent: var(--c3);
   --color-text-muted: var(--c4);
-  --color-text-faint: rgba(240, 237, 230, 0.30);
+  --color-text-faint: var(--c5);
   --color-border: var(--c8);
-  --color-border-md: var(--c9);
-  --color-border-lg: rgba(255, 255, 255, 0.25);
-  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface: var(--c6);
 
-  /* Tipografía */
-  --font-display: 'DM Serif Display', serif;
-  --font-body:    'DM Sans', sans-serif;
+  /* Tipografía - Shift a Mono y Sans limpia */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Espaciado */
   --section-padding: 2.5rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--c1);
+  color: var(--c2);
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-toggle {
+    display: block !important;
+  }
+}
+
+/* Responsive project card */
+@media (max-width: 768px) {
+  .project-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
+
+/* Responsive contact grid */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
 }
 
 *, *::before, *::after {

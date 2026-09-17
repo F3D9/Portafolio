@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import { Language, t } from "../i18n";
 
 // ─── Reemplazá estos valores con los de tu cuenta EmailJS ───
 const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -24,7 +25,7 @@ const inputStyle: React.CSSProperties = {
     boxSizing: "border-box",
 };
 
-export default function Contact() {
+export default function Contact({ lang }: { lang: Language }) {
     const formRef = useRef<HTMLFormElement>(null);
     const [status, setStatus] = useState<Status>("idle");
     const [focused, setFocused] = useState<string | null>(null);
@@ -69,26 +70,22 @@ export default function Contact() {
 
                 {/* Columna izquierda — texto */}
                 <div>
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--c3)", margin: "0 0 1.25rem" }}>
-                        Contacto
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--c3)", margin: "0 0 1.25rem" }}>
+                        {t(lang, 'contact.title')}
                     </p>
 
                     <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--c2)", lineHeight: 1.1, letterSpacing: "-0.02em", margin: "0 0 2rem" }}>
-                        Hablemos<br />
-                        <span style={{ color: "var(--c4)" }}>de tu proyecto.</span>
+                        {t(lang, 'contact.headline')}<br />
+                        <span style={{ color: "var(--c4)" }}>{t(lang, 'contact.subheadline')}</span>
                     </h2>
 
                     <div style={{ width: "40px", height: "2px", background: "var(--c3)", marginBottom: "2rem" }} />
 
-                    <p style={{ fontFamily: "var(--font-body)", fontSize: "1rem", color: "var(--c4)", lineHeight: 1.8, margin: "0 0 2.5rem" }}>
-                        Si tenés un proyecto en mente o querés hablar de trabajo, escribime.
-                    </p>
-
                     {/* Info directa */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         {[
-                            { label: "Idiomas", value: "Español · Inglés" },
-                            { label: "Ubicación", value: "Buenos Aires, Argentina" },
+                            { label: lang === 'es' ? "Idiomas" : "Languages", value: "Español · Inglés" },
+                            { label: lang === 'es' ? "Ubicación" : "Location", value: "Buenos Aires, Argentina" },
                         ].map(({ label, value }) => (
                             <div key={label} style={{ display: "flex", gap: "1rem", alignItems: "baseline" }}>
                                 <span style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--c3)", minWidth: "90px" }}>
@@ -108,13 +105,13 @@ export default function Contact() {
 
                         <div>
                             <label style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--c4)", display: "block", marginBottom: "0.5rem" }}>
-                                Nombre
+                                {t(lang, 'contact.inputName')}
                             </label>
                             <input
                                 type="text"
                                 name="from_name"
                                 required
-                                placeholder="Tu nombre"
+                                placeholder={lang === 'es' ? "Tu nombre" : "Your name"}
                                 style={{ ...inputStyle, borderColor: borderColor("nombre") }}
                                 onFocus={() => setFocused("nombre")}
                                 onBlur={() => setFocused(null)}
@@ -123,7 +120,7 @@ export default function Contact() {
 
                         <div>
                             <label style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--c4)", display: "block", marginBottom: "0.5rem" }}>
-                                Email
+                                {t(lang, 'contact.inputEmail')}
                             </label>
                             <input
                                 type="email"
@@ -138,13 +135,13 @@ export default function Contact() {
 
                         <div>
                             <label style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--c4)", display: "block", marginBottom: "0.5rem" }}>
-                                Mensaje
+                                {t(lang, 'contact.inputMessage')}
                             </label>
                             <textarea
                                 name="message"
                                 required
                                 rows={5}
-                                placeholder="Contame de qué se trata..."
+                                placeholder={lang === 'es' ? "Contame de qué se trata..." : "Tell me what it's about..."}
                                 style={{ ...inputStyle, borderColor: borderColor("mensaje"), resize: "vertical" }}
                                 onFocus={() => setFocused("mensaje")}
                                 onBlur={() => setFocused(null)}
@@ -172,21 +169,20 @@ export default function Contact() {
                             onMouseEnter={(e) => { if (status !== "sending") (e.currentTarget as HTMLElement).style.opacity = "0.85"; }}
                             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
                         >
-                            {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                            {status === "sending" ? (lang === 'es' ? "Enviando..." : "Sending...") : t(lang, 'contact.buttonSend')}
                         </button>
 
                         {/* Feedback */}
                         {status === "success" && (
                             <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "#6bff6b", textAlign: "center", margin: 0 }}>
-                                ✓ Mensaje enviado correctamente.
+                                ✓ {t(lang, 'contact.success')}
                             </p>
                         )}
                         {status === "error" && (
                             <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "#ff6b6b", textAlign: "center", margin: 0 }}>
-                                Algo salió mal. Intentá de nuevo o escribime directo al mail.
+                                {t(lang, 'contact.error')}
                             </p>
                         )}
-
                     </form>
                 </div>
             </div>

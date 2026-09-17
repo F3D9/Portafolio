@@ -1,34 +1,36 @@
 import { FaNodeJs, FaDocker, FaGitAlt, FaJava, } from "react-icons/fa";
 import { SiTypescript, SiPostgresql, SiRailway, SiReact, SiVitest, SiPython, SiExpress, SiTailwindcss} from "react-icons/si";
 import { motion } from "framer-motion";
+import { Language, t } from "../i18n";
 
 const skills = [
-    { name: "Node.js", icon: FaNodeJs },
-    { name: "Express", icon: SiExpress },
-    { name: "TypeScript", icon: SiTypescript },
-    { name: "Python", icon: SiPython },
     { name: "Java", icon: FaJava },
     { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "Spring Boot", icon: FaJava }, // Reuso el icono de Java ya que no importamos Spring
     { name: "Docker", icon: FaDocker },
+    { name: "Node.js", icon: FaNodeJs },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Express", icon: SiExpress },
+    { name: "Python", icon: SiPython },
     { name: "React", icon: SiReact },
-    { name: "Railway", icon: SiRailway },
     { name: "Vitest", icon: SiVitest },
     { name: "Git", icon: FaGitAlt },
     { name: "Tailwind CSS", icon: SiTailwindcss }
 ];
 
-export default function About() {
+export default function About({ lang }: { lang: Language }) {
     return (
         <motion.section
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             id="sobre-mí"
             style={{
-                background: "var(--c1)",
+                background: "var(--c9)",
                 padding: "7rem 2.5rem",
                 borderTop: "1px solid var(--c8)",
+                borderBottom: "1px solid var(--c8)",
             }}
         >
             <div
@@ -36,9 +38,9 @@ export default function About() {
                     maxWidth: "1100px",
                     margin: "0 auto",
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "5rem",
-                    alignItems: "start",
+                    gridTemplateColumns: "1.2fr 0.8fr",
+                    gap: "6rem",
+                    alignItems: "center",
                 }}
                 className="about-grid"
             >
@@ -46,76 +48,67 @@ export default function About() {
                 <div>
                     <p
                         style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "0.72rem",
-                            letterSpacing: "0.2em",
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.75rem",
+                            letterSpacing: "0.1em",
                             textTransform: "uppercase",
                             color: "var(--c3)",
-                            margin: "0 0 1.25rem",
+                            marginBottom: "1.5rem",
+                            display: "block",
                         }}
                     >
-                        Sobre mí
+                        {t(lang, 'about.title')}
                     </p>
 
                     <h2
                         style={{
-                            fontFamily: "'DM Serif Display', serif",
+                            fontFamily: "var(--font-display)",
                             fontSize: "clamp(2rem, 4vw, 3rem)",
                             color: "var(--c2)",
                             lineHeight: 1.1,
-                            letterSpacing: "-0.02em",
+                            letterSpacing: "-0.03em",
                             margin: "0 0 2rem",
+                            fontWeight: 700,
                         }}
                     >
-                        Desarrollador Fullstack 
+                        {t(lang, 'about.subtitle')} 
                         <br />
-                        <span style={{ color: "var(--c4)" }}>
-                            Estudiante en UBA.
+                        <span style={{ color: "var(--c4)", fontWeight: 400 }}>
+                            {t(lang, 'about.education')}
                         </span>
                     </h2>
 
-                    <div
-                        style={{
-                            width: "40px",
-                            height: "2px",
-                            background: "var(--c3)",
-                            marginBottom: "2rem",
-                        }}
-                    />
-
                     <p
                         style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "1rem",
+                            fontFamily: "var(--font-body)",
+                            fontSize: "1.05rem",
                             color: "var(--c4)",
                             lineHeight: 1.8,
                             margin: "0 0 1.25rem",
+                            maxWidth: "600px",
                         }}
                     >
-                        Soy Federico, desarrollador Fullstack Junior con foco en backend — Node.js, TypeScript
-                        y PostgreSQL. Estoy cursando Ingeniería Informática en la UBA y ya tengo proyectos
-                        deployados en producción. Busco sumarme a un equipo donde pueda crecer y aportar
-                        desde el día uno. Disponible para CABA presencial o remoto.
+                        {t(lang, 'about.description')}
                     </p>
-
                 </div>
 
                 {/* Columna derecha — skills */}
                 <div>
                     <p
                         style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize: "0.72rem",
-                            letterSpacing: "0.2em",
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "0.75rem",
+                            letterSpacing: "0.1em",
                             textTransform: "uppercase",
                             color: "var(--c3)",
-                            margin: "0 0 1.25rem",
+                            marginBottom: "1.5rem",
+                            display: "block",
                         }}
                     >
-                        Stack
+                        {t(lang, 'about.stackTitle')}
                     </p>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.75rem", marginBottom: "3.5rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
                         {skills.map(({ name, icon: Icon }) => (
                             <div
                                 key={name}
@@ -123,24 +116,24 @@ export default function About() {
                                     display: "flex",
                                     flexDirection: "column",
                                     alignItems: "center",
-                                    gap: "0.5rem",
-                                    height: "7rem",
-                                    padding: "1rem 1.25rem",
-                                    border: "1px solid var(--c3)",
-                                    paddingTop: "2rem",
-                                    color: "var(--c3)",
-
+                                    gap: "0.75rem",
+                                    padding: "1.5rem 0.5rem",
+                                    background: "var(--c1)",
+                                    border: "1px solid var(--c8)",
+                                    transition: "border-color 0.2s",
+                                    cursor: "default",
                                 }}
+                                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c3)")}
+                                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--c8)")}
                             >
-                                <Icon size={28} />
-                                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", letterSpacing: "0.03em" }}>
+                                <Icon size={24} color="var(--c3)" />
+                                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--c4)", textAlign: "center" }}>
                                     {name}
                                 </span>
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
         </motion.section>
     );

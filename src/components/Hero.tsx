@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import HeroButtons from "./HeroButtons";
+import { Language, t } from "../i18n";
 
-export default function Hero() {
+export default function Hero({ lang }: { lang: Language }) {
     return (
         <section
             id="inicio"
@@ -9,104 +10,97 @@ export default function Hero() {
                 minHeight: "100vh",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-end",
-                padding: "0 2.5rem 5rem",
+                justifyContent: "center",
+                padding: "0 2.5rem",
                 position: "relative",
                 overflow: "hidden",
                 background: "var(--c1)",
             }}
         >
-            {/* Fondo color plano azul */}
+            {/* Subtle Grid Background */}
             <div
                 style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundColor: "var(--c9)",
+                    backgroundImage: `radial-gradient(var(--c8) 1px, transparent 1px)`,
+                    backgroundSize: "30px 30px",
+                    opacity: 0.5,
+                    zIndex: 1,
                 }}
             />
-
-            {/* Gradiente overlay */}
+            
+            {/* Glow Effect */}
             <div
                 style={{
                     position: "absolute",
-                    inset: 0,
-                    background:
-                        "linear-gradient(to top, var(--c1) 40%, rgba(8,8,12,0.3) 100%)",
+                    top: "20%",
+                    right: "-10%",
+                    width: "500px",
+                    height: "500px",
+                    background: "radial-gradient(circle, var(--c7) 0%, transparent 70%)",
+                    zIndex: 1,
+                    pointerEvents: "none",
                 }}
             />
 
-            {/* Línea decorativa superior derecha */}
-            <div
-                style={{
-                    position: "absolute",
-                    top: "2.5rem",
-                    right: "2.5rem",
-                    width: "80px",
-                    height: "2px",
-                    background: "var(--c3)",
-                }}
-            />
-
-            {/* Contenido */}
-            <div style={{ position: "relative", zIndex: 2, maxWidth: "800px" }}>
+            <div style={{ position: "relative", zIndex: 2, maxWidth: "1100px", margin: "0 auto", width: "100%" }}>
                 <motion.p
-                    initial={{ opacity: 0 }} 
-                    animate={{ opacity: 1 }} 
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{ opacity: 1, y: 0 }} 
                     transition={{ duration: 0.5 }}
                     style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "1.5rem",
-                        letterSpacing: "0.18em",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.85rem",
+                        letterSpacing: "0.1em",
                         textTransform: "uppercase",
                         color: "var(--c3)",
-                        marginBottom: "1.25rem",
-                        margin: "0 0 1.25rem",
+                        marginBottom: "1.5rem",
+                        display: "block",
                     }}
                 >
-                    Full Stack Developer · Buenos Aires
+                    &gt; {t(lang, 'hero.role')}
                 </motion.p>
 
                 <motion.h1
-                    initial={{ opacity: 0, y: 40 }} 
+                    initial={{ opacity: 0, y: 30 }} 
                     animate={{ opacity: 1, y: 0 }} 
                     transition={{ duration: 0.7, delay: 0.2 }}
                     style={{
-                        fontFamily: "'DM Serif Display', serif",
-                        fontSize: "clamp(3rem, 8vw, 6rem)",
-                        lineHeight: 1.0,
+                        fontFamily: "var(--font-display)",
+                        fontSize: "clamp(3.5rem, 10vw, 7rem)",
+                        lineHeight: 0.9,
                         color: "var(--c2)",
-                        margin: "0 0 1.75rem",
-                        letterSpacing: "-0.03em",
+                        margin: "0 0 2rem",
+                        letterSpacing: "-0.04em",
+                        fontWeight: 800,
                     }}
                 >
-                    Federico
-                    Salgado
+                    {t(lang, 'hero.title')}
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
                     style={{
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontSize: "1rem",
+                        fontFamily: "var(--font-body)",
+                        fontSize: "1.1rem",
                         color: "var(--c4)",
-                        maxWidth: "480px",
-                        lineHeight: 1.7,
-                        margin: "0 0 2.5rem",
+                        maxWidth: "550px",
+                        lineHeight: 1.6,
+                        margin: "0 0 3rem",
                     }}
                 >
-                    APIs limpias, código que se entiende, proyectos que llegan a
-                    producción.
+                    {t(lang, 'hero.description')}
                 </motion.p>
 
                 <motion.div 
                     style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
                     initial={{ opacity: 0, y: 20 }} 
                     animate={{ opacity: 1, y: 0 }} 
-                    transition={{ duration: 0.5, delay: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
                     >
-                    <HeroButtons />
+                    <HeroButtons lang={lang} />
                 </motion.div>
             </div >
         </section >
