@@ -9,6 +9,7 @@ import fierrero1 from "../assets/fierrero1.png";
 import fierrero2 from "../assets/fierrero2.png";
 import fierrero3 from "../assets/fierrero3.png";
 import fierrero4 from "../assets/fierrero4.png";
+import asseto from "../assets/asseto.png";
 
 export interface Project {
   title: { es: string; en: string };
@@ -35,7 +36,7 @@ export const projects: Project[] = [
         en: "Architecture and development of a scalable ecosystem for league and competition management. Implementation of a robust REST API using Spring Boot, focusing on registration process optimization, complex data persistence, and real-time ranking management."
     },
     tags: ["Java", "Spring Boot", "PostgreSQL", "REST API", "Software Architecture"],
-    images: [preview],
+    images: [asseto],
     github: "https://github.com/F3D9",
     demo: "#",
   },
