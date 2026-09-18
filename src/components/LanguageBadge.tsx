@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const LanguageBadge = ({ lang }: { lang: 'es' | 'en' }) => {
     return (
         <span style={{ 

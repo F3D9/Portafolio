@@ -1,6 +1,6 @@
 import { FaFileAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Language, t } from "../i18n";
+import { Language} from "../i18n";
 
 interface ButtonProps {
     href: string;
@@ -61,7 +61,7 @@ const HeroButtons = ({ lang }: { lang: Language }) => {
             <PortfolioButton
                 href="/Portafolio/CV_Federico_Salgado.pdf"
                 icon={<FaFileAlt size={16} />}
-                label={lang === 'es' ? "Descargar CV" : "Download CV"}
+                label={lang === 'es' ? "Descargar CV" : "Download Resume"}
                 solid
                 download
             />

@@ -1,5 +1,5 @@
 import { FaNodeJs, FaDocker, FaGitAlt, FaJava, } from "react-icons/fa";
-import { SiTypescript, SiPostgresql, SiRailway, SiReact, SiVitest, SiPython, SiExpress, SiTailwindcss} from "react-icons/si";
+import { SiTypescript, SiPostgresql, SiReact, SiVitest, SiPython, SiExpress, SiTailwindcss} from "react-icons/si";
 import { motion } from "framer-motion";
 import { Language, t } from "../i18n";
 
