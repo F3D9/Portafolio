@@ -1,22 +1,30 @@
-import { FaNodeJs, FaDocker, FaGitAlt, FaJava, } from "react-icons/fa";
-import { SiTypescript, SiPostgresql, SiReact, SiVitest, SiPython, SiExpress, SiTailwindcss} from "react-icons/si";
+import { FaNodeJs, FaDocker, FaJava, FaCertificate } from "react-icons/fa";
+import { SiTypescript, SiPostgresql, SiReact, SiPython, SiExpress} from "react-icons/si";
 import { motion } from "framer-motion";
 import { Language, t } from "../i18n";
 
 const skills = [
     { name: "Java", icon: FaJava },
     { name: "PostgreSQL", icon: SiPostgresql },
-    { name: "Spring Boot", icon: FaJava }, // Reuso el icono de Java ya que no importamos Spring
-    { name: "Docker", icon: FaDocker },
+    { name: "Spring Boot", icon: FaJava }, 
     { name: "Node.js", icon: FaNodeJs },
     { name: "TypeScript", icon: SiTypescript },
+    { name: "NestJS", icon: FaNodeJs },
     { name: "Express", icon: SiExpress },
-    { name: "Python", icon: SiPython },
+    { name: "Docker", icon: FaDocker },
     { name: "React", icon: SiReact },
-    { name: "Vitest", icon: SiVitest },
-    { name: "Git", icon: FaGitAlt },
-    { name: "Tailwind CSS", icon: SiTailwindcss }
 ];
+
+const certifications = {
+    es: [
+        { name: "Java para Principiantes", issuer: "TodoCode Academy", date: "Octubre 2026", link: "https://todocodeacademy.com/certificate/java-para-principiantes-nqk/" },
+        { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "En proceso", link: "#" },
+    ],
+    en: [
+        { name: "Java for Beginners", issuer: "TodoCode Academy", date: "October 2026", link: "https://todocodeacademy.com/certificate/java-para-principiantes-nqk/" },
+        { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "In Progress", link: "#" },
+    ]
+};
 
 export default function About({ lang }: { lang: Language }) {
     return (
@@ -40,60 +48,108 @@ export default function About({ lang }: { lang: Language }) {
                     display: "grid",
                     gridTemplateColumns: "1.2fr 0.8fr",
                     gap: "6rem",
-                    alignItems: "center",
+                    alignItems: "start",
                 }}
                 className="about-grid"
             >
                 {/* Columna izquierda */}
-                <div>
-                    <p
-                        style={{
-                            fontFamily: "var(--font-mono)",
-                            fontSize: "0.75rem",
-                            letterSpacing: "0.1em",
-                            textTransform: "uppercase",
-                            color: "var(--c3)",
-                            marginBottom: "1.5rem",
-                            display: "block",
-                        }}
-                    >
-                        {t(lang, 'about.title')}
-                    </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+                    <div>
+                        <p
+                            style={{
+                                fontFamily: "var(--font-mono)",
+                                fontSize: "0.75rem",
+                                letterSpacing: "0.1em",
+                                textTransform: "uppercase",
+                                color: "var(--c3)",
+                                marginBottom: "1.5rem",
+                                display: "block",
+                            }}
+                        >
+                            {t(lang, 'about.title')}
+                        </p>
 
-                    <h2
-                        style={{
-                            fontFamily: "var(--font-display)",
-                            fontSize: "clamp(2rem, 4vw, 3rem)",
-                            color: "var(--c2)",
-                            lineHeight: 1.1,
-                            letterSpacing: "-0.03em",
-                            margin: "0 0 2rem",
-                            fontWeight: 700,
-                        }}
-                    >
-                        {t(lang, 'about.subtitle')} 
-                        <br />
-                        <span style={{ color: "var(--c4)", fontWeight: 400 }}>
-                            {t(lang, 'about.education')}
-                        </span>
-                    </h2>
+                        <h2
+                            style={{
+                                fontFamily: "var(--font-display)",
+                                fontSize: "clamp(2rem, 4vw, 3rem)",
+                                color: "var(--c2)",
+                                lineHeight: 1.1,
+                                letterSpacing: "-0.03em",
+                                margin: "0 0 2rem",
+                                fontWeight: 700,
+                            }}
+                        >
+                            {t(lang, 'about.subtitle')} 
+                            <br />
+                            <span style={{ color: "var(--c4)", fontWeight: 400 }}>
+                                {t(lang, 'about.education')}
+                            </span>
+                        </h2>
 
-                    <p
-                        style={{
-                            fontFamily: "var(--font-body)",
-                            fontSize: "1.05rem",
-                            color: "var(--c4)",
-                            lineHeight: 1.8,
-                            margin: "0 0 1.25rem",
-                            maxWidth: "600px",
-                        }}
-                    >
-                        {t(lang, 'about.description')}
-                    </p>
+                        <p
+                            style={{
+                                fontFamily: "var(--font-body)",
+                                fontSize: "1.05rem",
+                                color: "var(--c4)",
+                                lineHeight: 1.8,
+                                margin: "0",
+                                maxWidth: "600px",
+                            }}
+                        >
+                            {t(lang, 'about.description')}
+                        </p>
+                    </div>
+
+                    {/* Certificaciones integradas */}
+                    <div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+                            <FaCertificate size={18} color="var(--c3)" />
+                            <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--c3)", margin: 0 }}>
+                                {lang === 'es' ? 'Certificaciones' : 'Certifications'}
+                            </p>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                            {certifications[lang].map((cert, index) => (
+                                <a 
+                                    key={index} 
+                                    href={cert.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    style={{ 
+                                        display: "flex", 
+                                        justifyContent: "space-between", 
+                                        alignItems: "center", 
+                                        padding: "1.25rem 1.5rem", 
+                                        background: "var(--c1)", 
+                                        border: "1px solid var(--c8)", 
+                                        borderRadius: "4px",
+                                        textDecoration: "none",
+                                        transition: "all 0.2s",
+                                        cursor: "pointer"
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.borderColor = "var(--c3)";
+                                        e.currentTarget.style.background = "rgba(59, 130, 246, 0.05)";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.borderColor = "var(--c8)";
+                                        e.currentTarget.style.background = "var(--c1)";
+                                    }}
+                                >
+                                    <div style={{ display: "flex", flexDirection: "column" }}>
+                                        <p style={{ fontFamily: "var(--font-body)", color: "var(--c2)", fontSize: "1rem", fontWeight: 600, margin: 0 }}>{cert.name}</p>
+                                        <p style={{ fontFamily: "var(--font-body)", color: "var(--c4)", fontSize: "0.8rem", margin: 0 }}>{cert.issuer}</p>
+                                    </div>
+                                    <span style={{ fontFamily: "var(--font-mono)", color: "var(--c5)", fontSize: "0.7rem", marginLeft: "1rem" }}>{cert.date}</span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Columna derecha — skills */}
-                <div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                     <p
                         style={{
                             fontFamily: "var(--font-mono)",
@@ -101,7 +157,7 @@ export default function About({ lang }: { lang: Language }) {
                             letterSpacing: "0.1em",
                             textTransform: "uppercase",
                             color: "var(--c3)",
-                            marginBottom: "1.5rem",
+                            marginBottom: "0",
                             display: "block",
                         }}
                     >

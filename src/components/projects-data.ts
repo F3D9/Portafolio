@@ -24,39 +24,39 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: { 
-        es: "Assetto Corsa Racing Platform", 
-        en: "Assetto Corsa Racing Platform" 
-    },
-    status: { 
-        es: "En Desarrollo", 
-        en: "In Development" 
-    },
-    description: {
-        es: "Arquitectura y desarrollo de un ecosistema escalable para la gestión de ligas y competencias. Implementación de una API REST robusta utilizando Spring Boot, enfocada en la optimización de procesos de inscripción, persistencia de datos compleja y gestión de rankings en tiempo real.",
-        en: "Architecture and development of a scalable ecosystem for league and competition management. Implementation of a robust REST API using Spring Boot, focusing on registration process optimization, complex data persistence, and real-time ranking management."
-    },
-    tags: ["Java", "Spring Boot", "PostgreSQL", "REST API", "Software Architecture"],
-    images: [asseto],
-    github: "https://github.com/F3D9",
-    demo: "#",
-  },
-  {
-    title: { 
-        es: "Gym Tracker", 
-        en: "Gym Tracker" 
+        es: "GymTracker — App de Seguimiento de Entrenamientos", 
+        en: "GymTracker — Workout Tracking App" 
     },
     status: { 
         es: "En Produccion", 
         en: "In Production" 
     },
     description: {
-        es: "Sistema de gestión de rutinas con arquitectura desacoplada. Implementación de un backend robusto en NestJS con PostgreSQL y Prisma ORM, asegurando la integridad de los datos y un flujo de autenticación seguro mediante JWT.",
-        en: "Routine management system with decoupled architecture. Implementation of a robust NestJS backend with PostgreSQL and Prisma ORM, ensuring data integrity and a secure authentication flow using JWT."
+        es: "API REST con más de 30 endpoints organizada en módulos. Implementa autenticación mediante JWT en cookies httpOnly y CORS para seguridad. Modelado de datos con PostgreSQL y Prisma, con despliegue automatizado vía GitHub Actions.",
+        en: "REST API with 30+ endpoints organized in modules. Implements authentication via httpOnly cookies and CORS for security. Data modeling with PostgreSQL and Prisma, with automated deployment via GitHub Actions."
     },
-    tags: ["Nestjs", "TypeScript","PostgreSQL", "React","Vite","Prisma","Docker"],
+    tags: ["NestJS", "TypeScript", "PostgreSQL", "Prisma", "Docker", "JWT"],
     images: [gymtracker1, gymtracker2, gymtracker3, gymtracker4],
     github: "https://github.com/F3D9/Gym-Tracker-Frontend",
     demo: "https://f3d9.github.io/Gym-Tracker-Frontend/",
+  },
+  {
+    title: { 
+        es: "Chatbot Web con IA", 
+        en: "AI Web Chatbot" 
+    },
+    status: { 
+        es: "En producción", 
+        en: "In Production" 
+    },
+    description: {
+        es: "API REST con autorización por roles e integración con Gemini API para respuestas con contexto multiturno. Implementa persistencia de historial en PostgreSQL y validaciones estrictas con Zod y tests unitarios con Vitest.",
+        en: "REST API with role-based authorization and Gemini API integration for multi-turn context responses. Implements history persistence in PostgreSQL and strict validations with Zod and unit tests using Vitest."
+    },
+    tags: ["Node.js", "TypeScript", "Gemini API", "PostgreSQL", "Docker", "Vitest"],
+    images: [preview, preview2, preview3],
+    github: "https://github.com/F3D9/ChatBotNodeJs",
+    demo: "https://chatbotnodejs.up.railway.app",
   },
   {
     title: { 
@@ -68,30 +68,30 @@ export const projects: Project[] = [
         en: "In Production" 
     },
     description: {
-        es: "Simulador de gestión automovilística basado en lógica de negocio compleja. Implementación de motores de estado y validaciones rigurosas para garantizar la coherencia de la simulación en el cliente.",
-        en: "Automotive management simulator based on complex business logic. Implementation of state engines and rigorous validations to ensure simulation consistency on the client side."
+        es: "Juego de gestión automovilística basado en lógica de negocio compleja y simulaciones en el navegador.",
+        en: "Automotive management game based on complex business logic and browser-based simulations."
     },
-    tags: ["React","TypeScript","Docker", "Vitest"],
+    tags: ["React", "TypeScript", "Docker", "Vitest"],
     images: [fierrero1,fierrero2,fierrero3,fierrero4],
     github: "https://github.com/fierrero-game/Fierrero",
     demo: "https://fierrero-game.github.io/Fierrero/",
   },
   {
     title: { 
-        es: "AI Chatbot", 
-        en: "AI Chatbot" 
+        es: "Assetto Corsa Racing Platform", 
+        en: "Assetto Corsa Racing Platform" 
     },
     status: { 
-        es: "En producción", 
-        en: "In Production" 
+        es: "En Desarrollo", 
+        en: "In Development" 
     },
     description: {
-        es: "Integración de modelos de lenguaje (Gemini API) mediante un middleware en Node.js. Diseño de persistencia de historial en PostgreSQL y validación de flujos mediante una suite de tests automatizados con Vitest.",
-        en: "Integration of language models (Gemini API) through a Node.js middleware. Design of history persistence in PostgreSQL and flow validation using an automated test suite with Vitest."
+        es: "Desarrollo de una API REST con Spring Boot para la gestión de ligas de carreras, enfocándose en la robustez del backend y la persistencia de datos.",
+        en: "Development of a Spring Boot REST API for racing league management, focusing on backend robustness and data persistence."
     },
-    tags: ["Node.js", "TypeScript", "Gemini API", "PostgreSQL","Docker", "Vitest", "Railway"],
-    images: [preview, preview2, preview3],
-    github: "https://github.com/F3D9/ChatBotNodeJs",
-    demo: "https://chatbotnodejs.up.railway.app",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "REST API"],
+    images: [asseto],
+    github: "https://github.com/F3D9",
+    demo: "#",
   },
 ];
