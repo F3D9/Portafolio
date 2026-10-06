@@ -59,13 +59,6 @@ const HeroButtons = ({ lang }: { lang: Language }) => {
             transition={{ duration: 0.5, delay: 0.5 }}
         >
             <PortfolioButton
-                href="/Portafolio/CV_Federico_Salgado.pdf"
-                icon={<FaFileAlt size={16} />}
-                label={lang === 'es' ? "Descargar CV" : "Download Resume"}
-                solid
-                download
-            />
-            <PortfolioButton
                 href="https://linkedin.com/in/federico-salgado"
                 icon={<FaLinkedin size={16} />}
                 label="LinkedIn"
