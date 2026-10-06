@@ -111,11 +111,8 @@ export default function About({ lang }: { lang: Language }) {
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                             {certifications[lang].map((cert, index) => (
-                                <a 
+                                <div 
                                     key={index} 
-                                    href={cert.link} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
                                     style={{ 
                                         display: "flex", 
                                         justifyContent: "space-between", 
@@ -124,25 +121,18 @@ export default function About({ lang }: { lang: Language }) {
                                         background: "var(--c1)", 
                                         border: "1px solid var(--c8)", 
                                         borderRadius: "4px",
-                                        textDecoration: "none",
-                                        transition: "all 0.2s",
-                                        cursor: "pointer"
+                                        transition: "border-color 0.2s",
+                                        cursor: "default"
                                     }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.borderColor = "var(--c3)";
-                                        e.currentTarget.style.background = "rgba(59, 130, 246, 0.05)";
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.borderColor = "var(--c8)";
-                                        e.currentTarget.style.background = "var(--c1)";
-                                    }}
+                                    onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--c3)")}
+                                    onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--c8)")}
                                 >
                                     <div style={{ display: "flex", flexDirection: "column" }}>
                                         <p style={{ fontFamily: "var(--font-body)", color: "var(--c2)", fontSize: "1rem", fontWeight: 600, margin: 0 }}>{cert.name}</p>
                                         <p style={{ fontFamily: "var(--font-body)", color: "var(--c4)", fontSize: "0.8rem", margin: 0 }}>{cert.issuer}</p>
                                     </div>
                                     <span style={{ fontFamily: "var(--font-mono)", color: "var(--c5)", fontSize: "0.7rem", marginLeft: "1rem" }}>{cert.date}</span>
-                                </a>
+                                </div>
                             ))}
                         </div>
                     </div>
