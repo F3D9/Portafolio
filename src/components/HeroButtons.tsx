@@ -1,6 +1,5 @@
-import { FaFileAlt, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Language} from "../i18n";
 
 interface ButtonProps {
     href: string;
@@ -50,7 +49,7 @@ const PortfolioButton = ({ href, icon, label, solid = false, download = false }:
     );
 };
 
-const HeroButtons = ({ lang }: { lang: Language }) => {
+const HeroButtons = () => {
     return (
         <motion.div
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}

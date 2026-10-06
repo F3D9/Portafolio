@@ -100,7 +100,7 @@ export default function Hero({ lang }: { lang: Language }) {
                     animate={{ opacity: 1, y: 0 }} 
                     transition={{ duration: 0.5, delay: 0.6 }}
                     >
-                    <HeroButtons lang={lang} />
+                    <HeroButtons />
                 </motion.div>
             </div >
         </section >
